@@ -364,7 +364,7 @@ def render_team_card(label, team, elo, win_pct, avg_scored, avg_conceded, avg_ma
 def render_prob_bar(home_team, away_team, home_prob, away_prob):
     home_pct = int(round(home_prob * 100))
     away_pct = int(round(away_prob * 100))
-    st.progress(home_prob, text=f"")
+    st.progress(float(home_prob), text="")
     st.markdown(
         f"""
         <div class="prob-labels">
@@ -603,10 +603,10 @@ if predict_clicked:
     h2h_col1, h2h_col2 = st.columns(2)
     with h2h_col1:
         st.markdown(f"🏠 **{home_team}** {h2h_home_pct}%")
-        st.progress(h2h_home)
+        st.progress(float(h2h_home))
     with h2h_col2:
         st.markdown(f"✈️ **{away_team}** {h2h_away_pct}%")
-        st.progress(h2h_away)
+        st.progress(float(h2h_away))
 
     st.markdown("<div class='section-div'></div>", unsafe_allow_html=True)
 
